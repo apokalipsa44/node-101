@@ -303,4 +303,4 @@ $RECYCLE.BIN/
 /node_modules/
 /oodo-react-client/node_modules/
 
-**/config/keys/keys.js
+/new-express-app/keys.js
