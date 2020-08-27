@@ -1,14 +1,19 @@
-const express=require('express');
+const express = require("express");
+const authRoutes = require("./routes/auth-routes.js");
 
-const port=3000;
+const port = 3000;
 const app = express();
 
-app.set('view engine', 'hbs');
+app.use(express.static(__dirname + "/public"));
 
-app.get('/hello', (req, res) => {
-    res.render('hello', {
-        title:'superfly',
-    });
-})
+app.set("view engine", "hbs");
+
+app.get("/hello", (req, res) => {
+  res.render("hello", {
+    title: "superfly",
+  });
+});
+
+app.use("/auth", authRoutes);
 
 app.listen(port);
