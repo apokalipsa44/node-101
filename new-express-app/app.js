@@ -1,13 +1,15 @@
 const express = require("express");
 const authRoutes = require("./routes/auth-routes.js");
-const passportStrategy = require('./config/passport-setup')
+const passportStrategy = require("./config/passport-setup");
+const mongoose = require("mongoose");
+const keys = require("./keys");
 
 const port = 3000;
 const app = express();
 
-
-
 app.use(express.static(__dirname + "/public"));
+
+mongoose.connect(keys.MONGO_URI,{useNewUrlParser: true });
 
 app.set("view engine", "hbs");
 
