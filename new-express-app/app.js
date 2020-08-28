@@ -1,6 +1,6 @@
 const express = require("express");
 const authRoutes = require("./routes/auth-routes.js");
-const googleStrategy = require('./config/passport-setup')
+const passportStrategy = require('./config/passport-setup')
 
 const port = 3000;
 const app = express();
