@@ -9,7 +9,10 @@ const app = express();
 
 app.use(express.static(__dirname + "/public"));
 
-mongoose.connect(keys.MONGO_URI,{useNewUrlParser: true });
+mongoose.connect(keys.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 app.set("view engine", "hbs");
 
