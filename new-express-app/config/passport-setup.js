@@ -3,6 +3,19 @@ const GoogleStrategy = require("passport-google-oauth20");
 const keys = require("../keys");
 const User = require("../models/user");
 
+passport.serializeUser((user, done) => {
+  // sends user id to a cookie (mong DB id)
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  //gets user id from cookie (mong DB id)
+  User.findById(id).then((user) => {
+    console.log(user);
+    done(null, user);
+  });
+});
+
 passport.use(
   new GoogleStrategy(
     {
