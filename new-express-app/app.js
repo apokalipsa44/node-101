@@ -1,5 +1,6 @@
 const express = require("express");
 const authRoutes = require("./routes/auth-routes.js");
+const profileRoutes = require("./routes/profile-routes")
 const passportStrategy = require("./config/passport-setup");
 const mongoose = require("mongoose");
 const keys = require("./keys");
@@ -36,5 +37,6 @@ app.get("/hello", (req, res) => {
 });
 
 app.use("/auth", authRoutes);
+app.use('/profile', profileRoutes);
 
 app.listen(port);
