@@ -12,7 +12,7 @@ const authCheck = (req, res, next) => {
 };
 
 router.get("/", (req, res) => {
-    res.send('from profile router');
+    res.send('from profile router'+req.user.username);
 });
 
 module.exports =router;

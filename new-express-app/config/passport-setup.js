@@ -5,13 +5,14 @@ const User = require("../models/user");
 
 passport.serializeUser((user, done) => {
   // sends user id to a cookie (mong DB id)
+  console.log('from serializeUser'+user);
   done(null, user.id);
 });
 
 passport.deserializeUser((id, done) => {
   //gets user id from cookie (mong DB id)
   User.findById(id).then((user) => {
-    console.log(user);
+    console.log('from deserializeUser: '+user);
     done(null, user);
   });
 });
